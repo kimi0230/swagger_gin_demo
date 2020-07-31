@@ -1,0 +1,103 @@
+basePath: /api/v1
+definitions:
+  httputil.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  models.Account:
+    properties:
+      id:
+        example: 1
+        format: int64
+        type: integer
+      name:
+        example: account name
+        type: string
+      uuid:
+        example: 550e8400-e29b-41d4-a716-446655440000
+        format: uuid
+        type: string
+    type: object
+host: localhost:5566
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Example API With Gin
+  version: "1.0"
+paths:
+  /accounts:
+    get:
+      consumes:
+      - application/json
+      description: get accounts
+      parameters:
+      - description: name search
+        format: email
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Account'
+            type: array
+      summary: List accounts
+      tags:
+      - accounts
+  /accounts/{id}:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Account'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+      summary: Show an account
+      tags:
+      - accounts
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format

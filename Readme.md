@@ -1,10 +1,10 @@
 # Swagger Gin Demo
 
-## install package
+## Install package
 govendor sync
 
-## install swagger
+## Install swagger
     go get -u github.com/swaggo/swag/cmd/swag  
 
-## init swagger
+## Initial swagger
     swag init

@@ -1,15 +1,19 @@
 # Swagger Gin Demo
 
 ## Install package
-govendor sync
+    govendor sync
 
-## Install swagger
+## Swagger
+
+#### Install swagger
     go get -u github.com/swaggo/swag/cmd/swag  
 
-## Initial swagger
+#### Initial swagger document
     swag init
-
-## Start server (Defaut is "DebugMode")
+---
+## Start server 
+ Defaut is "DebugMode".
+ 
 #### Run ReleaseMode
     go run main.go app
 #### Run DebugMode

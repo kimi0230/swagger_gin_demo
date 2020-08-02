@@ -23,6 +23,18 @@ definitions:
         format: uuid
         type: string
     type: object
+  models.AddAccount:
+    properties:
+      name:
+        example: account name
+        type: string
+    type: object
+  models.UpdateAccount:
+    properties:
+      name:
+        example: account name
+        type: string
+    type: object
 host: localhost:5566
 info:
   contact:
@@ -60,7 +72,82 @@ paths:
       summary: List accounts
       tags:
       - accounts
+    post:
+      consumes:
+      - application/json
+      description: add by json account
+      parameters:
+      - description: Add account
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/models.AddAccount'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Account'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+      summary: Add an account
+      tags:
+      - accounts
   /accounts/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete by account ID
+      parameters:
+      - description: Account ID
+        format: int64
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/models.Account'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+      summary: Delete an account
+      tags:
+      - accounts
     get:
       consumes:
       - application/json
@@ -83,21 +170,108 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/models.Account'
+            type: object
         "400":
           description: Bad Request
           schema:
             $ref: '#/definitions/httputil.HTTPError'
+            type: object
         "404":
           description: Not Found
           schema:
             $ref: '#/definitions/httputil.HTTPError'
+            type: object
         "500":
           description: Internal Server Error
           schema:
             $ref: '#/definitions/httputil.HTTPError'
+            type: object
       summary: Show an account
       tags:
       - accounts
+    patch:
+      consumes:
+      - application/json
+      description: Update by json account
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Update account
+        in: body
+        name: account
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateAccount'
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Account'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+      summary: Update an account
+      tags:
+      - accounts
+  /accounts/{id}/images:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload file
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: account image
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Message'
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/httputil.HTTPError'
+            type: object
+      summary: Upload account image
+      tags:
+      - accounts
 swagger: "2.0"
-x-extension-openapi:
-  example: value on a json format

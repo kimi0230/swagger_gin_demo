@@ -1,7 +1,8 @@
 {
 	"comment": "",
 	"ignore": "test",
-	"package": [{
+	"package": [
+		{
 			"checksumSHA1": "jJ7xZPq8GxWaMuPab+g0f+wqTqk=",
 			"path": "github.com/KyleBanks/depth",
 			"revision": "b7f67b6d8d5f169cc58aa195df333dc0b353d6b3",
@@ -44,10 +45,10 @@
 			"revisionTime": "2019-09-05T05:13:34Z"
 		},
 		{
-			"checksumSHA1": "Jv1BDWXyVsvPMQc7e67mTgPbt74=",
+			"checksumSHA1": "od/HenlYQjh7PmkJndbwScj3zZE=",
 			"path": "github.com/gin-gonic/gin",
-			"revision": "4cabdd303fe38b6b53e83a6aa04d0468a71c0139",
-			"revisionTime": "2020-07-09T01:40:00Z"
+			"revision": "c6d6df6d5ada990c902c51a54b9c4c6f21f87840",
+			"revisionTime": "2020-08-01T07:26:29Z"
 		},
 		{
 			"checksumSHA1": "VGrSfi6ORVO4G4bdQYtp2cZVEdI=",

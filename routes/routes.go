@@ -39,10 +39,10 @@ func SetupRouter() *gin.Engine {
 		{
 			accounts.GET(":id", account.ShowAccount)
 			accounts.GET("", account.ListAccounts)
-			// accounts.POST("", c.AddAccount)
-			// accounts.DELETE(":id", c.DeleteAccount)
-			// accounts.PATCH(":id", c.UpdateAccount)
-			// accounts.POST(":id/images", c.UploadAccountImage)
+			accounts.POST("", account.AddAccount)
+			accounts.PATCH(":id", account.UpdateAccount)
+			accounts.DELETE(":id", account.DeleteAccount)
+			accounts.POST(":id/images", account.UploadAccountImage)
 		}
 
 	}

@@ -84,6 +84,36 @@
     param	參數按照: `參數名` `參數類型` `參數的資料類型` `是否必填` `註解`
     header	response header: `return code` `參數類型` `資料類型` `註解`
     router	path httpMethod
+    
+![image](https://github.com/kimi0230/swagger_gin_demo/blob/master/screenshot/APIOperation.png)
+
+
+### Param Type
+https://github.com/swaggo/swag#param-type
+   
+    query
+    path
+    header
+    body
+    formData
+    
+Data Type
+https://github.com/swaggo/swag#param-type
+
+    string (string)
+    integer (int, uint, uint32, uint64)
+    number (float32)
+    boolean (bool)
+    user defined struct
+
+Mime Types
+https://github.com/swaggo/swag#mime-types
+
+Attribute
+https://github.com/swaggo/swag#attribute
+
+## API Documentation link
+    http://localhost:8080/swagger/index.html
 
 ## Reference
 * [swaggo/swag](https://github.com/swaggo/swag)

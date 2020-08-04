@@ -69,9 +69,9 @@ func ListAccounts(c *gin.Context) {
 }
 
 // AddAccount godoc
-// @Summary Add an account
+// @Summary X01 Add an account
 // @Description add by json account
-// @Tags accounts
+// @Tags accounts, accounts2
 // @Accept  json
 // @Produce  json
 // @Param account body models.AddAccount true "Add account"

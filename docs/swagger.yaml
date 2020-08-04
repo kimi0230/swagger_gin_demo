@@ -12,6 +12,7 @@ definitions:
   models.Account:
     properties:
       id:
+        description: ID this is userid (struct 的註解)
         example: 1
         format: int64
         type: integer
@@ -107,9 +108,10 @@ paths:
           schema:
             $ref: '#/definitions/httputil.HTTPError'
             type: object
-      summary: Add an account
+      summary: X01 Add an account
       tags:
       - accounts
+      - accounts2
   /accounts/{id}:
     delete:
       consumes:

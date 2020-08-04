@@ -61,9 +61,10 @@
                     "application/json"
                 ],
                 "tags": [
-                    "accounts"
+                    "accounts",
+                    "accounts2"
                 ],
-                "summary": "Add an account",
+                "summary": "X01 Add an account",
                 "parameters": [
                     {
                         "description": "Add account",
@@ -364,6 +365,7 @@
             "type": "object",
             "properties": {
                 "id": {
+                    "description": "ID this is userid (struct 的註解)",
                     "type": "integer",
                     "format": "int64",
                     "example": 1
